@@ -46,8 +46,8 @@ TEST(seconds_datetime, from_datetime_to_seconds) {
         .second = 55,
         .weekday = 6,
     };
-	
-	TEST_ASSERT(datetime_to_seconds(&seconds, &t));
+
+    TEST_ASSERT(datetime_to_seconds(&seconds, &t));
     TEST_ASSERT_EQUAL(439846555, seconds);
 }
 
@@ -62,7 +62,7 @@ TEST(seconds_datetime, from_datetime_to_seconds_with_invalid_datetime) {
         .second = 55 + 60, // add 60 seconds
         .weekday = 6,
     };
-	TEST_ASSERT_FALSE(datetime_to_seconds(&seconds, &t));
+    TEST_ASSERT_FALSE(datetime_to_seconds(&seconds, &t));
 }
 
 TEST(seconds_datetime, null_paramters) {
@@ -76,11 +76,11 @@ TEST(seconds_datetime, null_paramters) {
         .second = 55,
         .weekday = 6,
     };
-	
-	TEST_ASSERT_FALSE(datetime_to_seconds(0, 0));
-	TEST_ASSERT_FALSE(datetime_to_seconds(&seconds, 0));
-	TEST_ASSERT_FALSE(datetime_to_seconds(0, &t));
-	TEST_ASSERT_FALSE(seconds_to_datetime(0, seconds));
+
+    TEST_ASSERT_FALSE(datetime_to_seconds(0, 0));
+    TEST_ASSERT_FALSE(datetime_to_seconds(&seconds, 0));
+    TEST_ASSERT_FALSE(datetime_to_seconds(0, &t));
+    TEST_ASSERT_FALSE(seconds_to_datetime(0, seconds));
 }
 
 TEST(seconds_datetime, datetime_is_valid) {
@@ -101,7 +101,7 @@ TEST(seconds_datetime, datetime_is_valid) {
     t.hour = 24;
     TEST_ASSERT_FALSE(datetime_is_valid(&t, 0));
     TEST_ASSERT_FALSE(datetime_is_valid(&t, 1));
-    
+
     TEST_ASSERT(seconds_to_datetime(&t, seconds));
     t.month = 13;
     TEST_ASSERT_FALSE(datetime_is_valid(&t, 0));
